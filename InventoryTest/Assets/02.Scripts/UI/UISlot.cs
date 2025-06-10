@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class UISlot : MonoBehaviour
 {
+    public void SetItem()
+    {
+
+    }
+    public void RefreshUI()
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {
