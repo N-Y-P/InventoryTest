@@ -13,6 +13,8 @@ public class Character
     public int BaseCrit { get; private set; }
 
     //Item 타입의 리스트 Inventory 추가
+    public List<Item> Inventory { get; private set; }
+
     //추후 Character생성자에 Inventory 추가
     public Character(int baseAttack,  int baseDefense, int baseHealth, int baseCrit)
     {
@@ -20,7 +22,29 @@ public class Character
         BaseDefense = baseDefense;
         BaseHealth = baseHealth;
         BaseCrit = baseCrit;
+
+        Inventory = new List<Item>();
     }
 
     //AddItem, Equip, UnEquip 메서드 추가 및 내용 작성
+    // 인벤토리에 아이템 추가
+    public void AddItem(Item item)
+    {
+        if (item == null) return;
+        Inventory.Add(item);
+    }
+
+    // 슬롯 클릭 시 장착
+    public void Equip(Item item)
+    {
+        if (!Inventory.Contains(item)) return;
+        item.IsEquipped = true;
+    }
+
+    // 슬롯 클릭 시 해제
+    public void UnEquip(Item item)
+    {
+        if (!Inventory.Contains(item)) return;
+        item.IsEquipped = false;
+    }
 }
