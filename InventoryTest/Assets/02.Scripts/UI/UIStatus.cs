@@ -1,22 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour
 {
     //하부 UI 구성요소에 해당하는 필드모두 추가
-    [Header("뒤로가기 버튼")]
-    [SerializeField] private Button mainMenuBtn;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TextMeshProUGUI attackText;
+    public TextMeshProUGUI defenseText;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI critText;
 
-    // Update is called once per frame
-    void Update()
+    //Character 정보를 세팅하는 메서드 추가(보간 문자열 활용)
+    public void SetStatus(Character character)
     {
-        
+        attackText.text = $"{character.BaseAttack}";
+        defenseText.text = $"{character.BaseDefense}";
+        healthText.text = $"{character.BaseHealth}";
+        critText.text = $"{character.BaseCrit}";
     }
 }
