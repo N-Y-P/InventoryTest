@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Character
@@ -12,6 +13,14 @@ public class Character
     public int BaseHealth { get; private set; } 
     public int BaseCrit { get; private set; }
 
+    public int Attack => BaseAttack
+                             + Inventory.Where(i => i.IsEquipped).Sum(i => i.AttackBonus);
+    public int Defense => BaseDefense
+                                 + Inventory.Where(i => i.IsEquipped).Sum(i => i.DefenseBonus);
+    public int Health => BaseHealth
+                                 + Inventory.Where(i => i.IsEquipped).Sum(i => i.HealthBonus);
+    public int Crit => BaseCrit
+                                 + Inventory.Where(i => i.IsEquipped).Sum(i => i.CritBonus);
     //Item 타입의 리스트 Inventory 추가
     public List<Item> Inventory { get; private set; }
 

@@ -15,9 +15,9 @@ public class UIStatus : MonoBehaviour
     //Character 정보를 세팅하는 메서드 추가(보간 문자열 활용)
     public void SetStatus(Character character)
     {
-        attackText.text = $"{character.BaseAttack}";
-        defenseText.text = $"{character.BaseDefense}";
-        healthText.text = $"{character.BaseHealth}";
-        critText.text = $"{character.BaseCrit}";
+        attackText.text = $"{character.Attack}";
+        defenseText.text = $"{character.Defense}";
+        healthText.text = $"{character.Health}";
+        critText.text = $"{character.Crit}";
     }
 }
