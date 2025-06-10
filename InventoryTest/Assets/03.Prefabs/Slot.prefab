@@ -241,8 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596df60c13e158740a8c435823fc6c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotImage: {fileID: 0}
-  equip: {fileID: 0}
+  slotImage: {fileID: 2302383421120145201}
+  equip: {fileID: 625887456960798845}
 --- !u!114 &13433138336370656
 MonoBehaviour:
   m_ObjectHideFlags: 0

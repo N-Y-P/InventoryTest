@@ -21,6 +21,7 @@ public class UISlot : MonoBehaviour
         // 슬롯 자체에 붙어 있는 Button 컴포넌트를 가져옴
         button = GetComponent<Button>();
     }
+
     public void SetItem(Item newItem)
     {
         item = newItem;
@@ -28,8 +29,7 @@ public class UISlot : MonoBehaviour
         RefreshUI();
     }
 
-
-    public void RefreshUI()//
+    public void RefreshUI()
     {
         if (item != null)
         {
@@ -42,7 +42,16 @@ public class UISlot : MonoBehaviour
             equip.SetActive(false);
         }
     }
-    private void ToggleEquip()//장비 장착 했는지 
+    private void ToggleEquip()
     {
+        if (item == null) return;
+
+        if (item.IsEquipped)
+            GameManager.Instance.player.UnEquip(item);
+        else
+            GameManager.Instance.player.Equip(item);
+
+        RefreshUI();
+        UIManager.Instance.uiStatus.SetStatus(GameManager.Instance.player);
     }
 }

@@ -27,4 +27,8 @@ public class UIManager : MonoBehaviour
         }
         Instance = this;
     }
+    private void Start()
+    {
+        uiInventory.gameObject.SetActive(false);
+    }
 }

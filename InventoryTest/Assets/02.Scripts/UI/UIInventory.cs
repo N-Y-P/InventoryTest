@@ -18,6 +18,19 @@ public class UIInventory : MonoBehaviour
 
     public void InitInventoryUI()//UISlot 리스트, for문, Instantiate 등등 활용
     {
+        foreach (var s in slots)
+            Destroy(s.gameObject);
+        slots.Clear();
 
+        // player의 Inventory 리스트를 가져와
+        var items = GameManager.Instance.player.Inventory;
+
+        for (int i = 0; i < items.Count; i++)
+        {
+            var it = items[i];
+            var slot = Instantiate(slotPrefab, contentParent);
+            slot.SetItem(it);
+            slots.Add(slot);
+        }
     }
 }
