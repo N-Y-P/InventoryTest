@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public List<Item> playerInventory = new List<Item>();
 
     // 인벤토리 Sprites
-    [SerializeField] private Sprite swordSprite;
+    [SerializeField] private Sprite hammerSprite;
     [SerializeField] private Sprite shieldSprite;
 
     //싱글톤
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         player = new Character(35, 40, 100, 25);
 
         //아이템 생성해서 인벤토리에 넣기
-        player.AddItem(new Item("Sword", swordSprite, 10, 0, 0, 0, false));
+        player.AddItem(new Item("Hammer", hammerSprite, 10, 0, 0, 0, false));
         player.AddItem(new Item("Shield", shieldSprite, 0, 8, 0, 0, false));
 
         UIManager.Instance.uiStatus.SetStatus(player);
