@@ -4143,10 +4143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5c5dbb4926eb046b32b5d9aa432875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hammerSprite: {fileID: 5393448996881579246, guid: c83fa2ac472c64145a29bad9c05a9a50,
-    type: 3}
-  shieldSprite: {fileID: -7314038943984137149, guid: 888bc6c3bee4a644894eb075d8d389f5,
-    type: 3}
+  playerInventory:
+  - {fileID: 11400000, guid: 36b6bc6e966c99546a94d1b4e1fc07f3, type: 2}
+  - {fileID: 11400000, guid: 8708b75818df90f4eaba662f93eb0529, type: 2}
 --- !u!1 &1570636438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5497,6 +5496,6 @@ SceneRoots:
   - {fileID: 894011598}
   - {fileID: 772167469}
   - {fileID: 2006751247}
-  - {fileID: 538926654}
   - {fileID: 1482126659}
   - {fileID: 2056263518}
+  - {fileID: 538926654}

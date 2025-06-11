@@ -6,14 +6,13 @@ using UnityEngine.UI;
 
 public class UISlot : MonoBehaviour
 {
-    //UI 구성요소에 연결될 필드 추가
-    //아이템 아이콘
+    [Header("할당된 아이템 데이터")]
+    [SerializeField] private ItemData itemData; 
+
+    [Header("UI 구성 요소")]
     [SerializeField] private Image slotImage;
+    [SerializeField] private GameObject equipIcon;
 
-    //장착 이미지(장착했다면 활성화, 해제했다면 비활성화)
-    [SerializeField] private GameObject equip;
-
-    private Item item;
     private Button button;
 
     void Awake()
@@ -22,34 +21,36 @@ public class UISlot : MonoBehaviour
         button = GetComponent<Button>();
     }
 
-    public void SetItem(Item newItem)
+    public void SetItem(ItemData newItem)
     {
-        item = newItem;
+        itemData = newItem;
+
         button.onClick.AddListener(ToggleEquip);
         RefreshUI();
     }
 
     public void RefreshUI()
     {
-        if (item != null)
+        if (itemData != null)
         {
-            slotImage.sprite = item.Icon;
-            equip.SetActive(item.IsEquipped);
+            slotImage.sprite = itemData.Icon;
+            equipIcon.SetActive(itemData.IsEquipped);
         }
         else
         {
             slotImage.sprite = null;
-            equip.SetActive(false);
+            equipIcon.SetActive(false);
         }
     }
     private void ToggleEquip()
     {
-        if (item == null) return;
+        if (itemData == null) return;
 
-        if (item.IsEquipped)
-            GameManager.Instance.player.UnEquip(item);
+        var player = GameManager.Instance.player;
+        if (itemData.IsEquipped)
+            player.UnEquip(itemData);
         else
-            GameManager.Instance.player.Equip(item);
+            player.Equip(itemData);
 
         RefreshUI();
         UIManager.Instance.uiStatus.SetStatus(GameManager.Instance.player);
